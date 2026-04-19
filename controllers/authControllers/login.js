@@ -33,12 +33,14 @@ export const login = async (req, res) => {
     res.cookie("accessToken", accessToken, {
       httpOnly: true, 
       secure: true,
+      sameSite: "none",
       maxAge: ms(process.env.generateTokenExpiry),
     });
 
     res.cookie("refreshToken", refreshToken, {
       httpOnly: true,
       secure: true,
+      sameSite: "none",
       maxAge: ms(process.env.refreshTokenExpiry),
     });
 

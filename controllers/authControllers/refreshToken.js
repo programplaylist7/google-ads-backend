@@ -55,6 +55,7 @@ export const refreshTokenHandler = async (req, res) => {
     res.cookie("accessToken", accessToken, {
       httpOnly: true,
       secure: true,
+      sameSite: "none",
       maxAge: ms(process.env.generateTokenExpiry),
     });
 
