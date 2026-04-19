@@ -44,6 +44,7 @@ Tone: ${tone || "professional"}
 
     const text = response.text;
     const cleaned = text.replace(/```json|```/g, "").trim();
+    console.log("cleaned: ", cleaned);
     const parsedData = await JSON.parse(cleaned);
     return parsedData;
   } catch (err) {

@@ -6,7 +6,7 @@ import { Generation } from "../../models/Generation.js";
 export const generateAds = async (req, res) => {
   try {
     const { product, audience, tone } = req.body;
-    console.log("req.user: ", req.user);
+
     const { id } = req.user;
     const { modelName } = req.params;
 
