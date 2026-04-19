@@ -9,6 +9,7 @@ import cookieParser from "cookie-parser";
 dotenv.config();
 
 const app = express();
+app.set("trust proxy", 1);
 app.use(express.json());
 app.use(cookieParser());
 
@@ -32,6 +33,7 @@ const corsOptions = {
 app.use(cors(corsOptions));
 app.use(adsRateLimiter);
 connectDB();
+
 
 app.get("/data", (req, res) => {
   res.json({ msg: "This is CORS-enabled" });
