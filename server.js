@@ -1,13 +1,12 @@
-import express from "express"
-import dotenv from "dotenv"
+import express from "express";
+import dotenv from "dotenv";
 import { connectDB } from "./config/connectDB.js";
-import cors from "cors"
+import cors from "cors";
 import authRoutes from "./routes/authRoutes.js";
 import adsRoutes from "./routes/adsRoutes.js";
 import { adsRateLimiter } from "./middlewares/rateLimiter.js";
 import cookieParser from "cookie-parser";
 dotenv.config();
-
 
 const app = express();
 app.use(express.json());
@@ -34,13 +33,12 @@ app.use(cors(corsOptions));
 app.use(adsRateLimiter);
 connectDB();
 
-app.get('/data', (req, res) => {
-  res.json({ msg: 'This is CORS-enabled'});
+app.get("/data", (req, res) => {
+  res.json({ msg: "This is CORS-enabled" });
 });
 
 app.use("/api/auth", authRoutes);
 app.use("/api/ads", adsRoutes);
 
-app.listen(process.env.PORT, () => {
-    console.log(`app is started on port: ${process.env.PORT}`);
-})
+import serverlessExpress from "@vendia/serverless-express";
+export const handler = serverlessExpress({ app });
