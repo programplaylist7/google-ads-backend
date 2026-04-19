@@ -14,6 +14,7 @@
     "@codegenie/serverless-express": "github:vendia/serverless-express",
     "@google/genai": "^1.50.1",
     "@google/generative-ai": "^0.24.1",
+    "@vendia/serverless-express": "^4.12.6",
     "bcryptjs": "^3.0.3",
     "cookie-parser": "^1.4.7",
     "cors": "^2.8.6",
